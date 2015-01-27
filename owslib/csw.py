@@ -634,7 +634,9 @@ class CatalogueServiceWeb:
 
             self.request = util.element_to_string(self.request, encoding='utf-8')
 
-            self.response = util.http_post(xml_post_url, self.request, self.lang, self.timeout, self.username, self.password)
+            #Modified by Ross Thompson for use with FGP
+            #self.response = util.http_post(xml_post_url, self.request, self.lang, self.timeout, self.username, self.password)
+            self.response = util.http_post(self.url, self.request, self.lang, self.timeout, self.username, self.password)
 
         # parse result see if it's XML
         self._exml = etree.parse(StringIO.StringIO(self.response))
